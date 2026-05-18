@@ -2,231 +2,1261 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>JK Studio MB | Especialistas en Cejas</title>
     <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #050505; 
-            color: #ffffff;
+        * {
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
         }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
         .header {
             text-align: center;
-            padding: 40px 20px 20px;
-            background: #0a0a0a;
-            border-bottom: 1px solid #d4af37;
+            padding: 50px 20px 30px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+            border-bottom: 2px solid #d4af37;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: shimmer 3s infinite;
+            -webkit-animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @-webkit-keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
         h1 {
-            font-size: 2.5rem;
-            letter-spacing: 5px;
+            font-size: 3rem;
+            letter-spacing: 8px;
             margin: 0;
             text-transform: uppercase;
+            background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 3s linear infinite;
+            -webkit-animation: shine 3s linear infinite;
+            position: relative;
+            z-index: 1;
         }
+        
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+        
+        @-webkit-keyframes shine {
+            to { background-position: 200% center; }
+        }
+        
         .subtitulo {
             color: #d4af37;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            margin-top: 5px;
+            letter-spacing: 4px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s;
+            -webkit-animation: fadeInUp 1s ease forwards 0.5s;
         }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); -webkit-transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); -webkit-transform: translateY(0); }
+        }
+        
+        @-webkit-keyframes fadeInUp {
+            from { opacity: 0; -webkit-transform: translateY(20px); }
+            to { opacity: 1; -webkit-transform: translateY(0); }
+        }
+        
+        .nav-back {
+            text-align: center;
+            padding: 15px 20px;
+            background: #0a0a0a;
+            border-bottom: 1px solid #222;
+        }
+        .nav-back a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        .nav-back a:hover { color: #d4af37; }
+        
+        .hero-container {
+            position: relative;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
         .hero-img {
             width: 100%;
-            max-width: 700px;
-            height: 350px;
+            height: 400px;
             object-fit: cover;
             display: block;
-            margin: 30px auto;
-            border-radius: 15px;
-            border: 2px solid #222;
+            border-radius: 20px;
+            border: 3px solid transparent;
+            background: linear-gradient(#050505, #050505) padding-box,
+                        linear-gradient(45deg, #d4af37, #fff, #d4af37) border-box;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+            transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            animation: float 6s ease-in-out infinite;
+            -webkit-animation: float 6s ease-in-out infinite;
+            -webkit-backface-visibility: hidden;
         }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); -webkit-transform: translateY(0px); }
+            50% { transform: translateY(-10px); -webkit-transform: translateY(-10px); }
+        }
+        
+        @-webkit-keyframes float {
+            0%, 100% { -webkit-transform: translateY(0px); }
+            50% { -webkit-transform: translateY(-10px); }
+        }
+        
+        .hero-img:hover {
+            transform: scale(1.02) translateY(-5px);
+            -webkit-transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.3);
+        }
+        
         .container {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px 40px;
         }
+        
         .lista-servicios {
-            margin-bottom: 40px;
-        }
-        .tecnica {
-            background-color: #111;
-            border-left: 3px solid #d4af37;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 0 8px 8px 0;
-        }
-        .tecnica h3 {
-            margin: 0 0 8px 0;
-            color: #fff;
-            font-size: 1.1rem;
-        }
-        .tecnica p {
-            margin: 0;
-            color: #999;
-            font-size: 0.9rem;
-        }
-        .cajas-precio {
-            display: flex;
-            gap: 15px;
             margin-bottom: 50px;
         }
-        .caja {
-            flex: 1;
-            background: #0a0a0a;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 20px;
+        
+        .section-title {
             text-align: center;
-        }
-        .caja .tipo {
-            font-size: 0.8rem;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .caja .precio {
-            font-size: 2rem;
-            font-weight: bold;
             color: #d4af37;
-            margin: 10px 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
         }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+        
+        .tecnica {
+            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+            border: 2px solid #333;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            -webkit-backface-visibility: hidden;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        .tecnica::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
+            transform: scaleX(0);
+            -webkit-transform: scaleX(0);
+            transform-origin: left;
+            -webkit-transform-origin: left;
+            transition: transform 0.4s ease;
+            -webkit-transition: -webkit-transform 0.4s ease;
+        }
+        
+        .tecnica:hover::before {
+            transform: scaleX(1);
+            -webkit-transform: scaleX(1);
+        }
+        
+        .tecnica::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            -webkit-transition: opacity 0.4s ease;
+        }
+        
+        .tecnica:hover::after {
+            opacity: 1;
+        }
+        
+        .tecnica:hover {
+            transform: translateY(-10px) scale(1.02);
+            -webkit-transform: translateY(-10px) scale(1.02);
+            border-color: #d4af37;
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+        
+        .tecnica-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37, #b8960c);
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+        }
+        
+        .tecnica:hover .tecnica-number {
+            transform: rotate(360deg) scale(1.1);
+            -webkit-transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        }
+        
+        .tecnica h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .tecnica p {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+            -webkit-transition: color 0.3s ease;
+        }
+        
+        .tecnica:hover p {
+            color: #ddd;
+        }
+        
+        .tecnica-icon {
+            font-size: 1.6rem;
+            transition: transform 0.3s ease;
+            -webkit-transition: -webkit-transform 0.3s ease;
+        }
+        
+        .tecnica:hover .tecnica-icon {
+            transform: rotate(15deg) scale(1.2);
+            -webkit-transform: rotate(15deg) scale(1.2);
+        }
+        
+        .cajas-precio {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .caja {
+            background: linear-gradient(145deg, #111 0%, #1a1a1a 100%);
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            -webkit-transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .caja::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
+            transform: scaleX(0);
+            -webkit-transform: scaleX(0);
+            transition: transform 0.4s ease;
+            -webkit-transition: -webkit-transform 0.4s ease;
+        }
+        
+        .caja:hover::before {
+            transform: scaleX(1);
+            -webkit-transform: scaleX(1);
+        }
+        
+        .caja:hover {
+            transform: translateY(-10px);
+            -webkit-transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+        
+        .caja .tipo {
+            color: #d4af37;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        
+        .caja .precio {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 3s linear infinite;
+            -webkit-animation: shine 3s linear infinite;
+            margin-bottom: 25px;
+        }
+        
         .btn-wa {
             display: inline-block;
             background: transparent;
             color: #d4af37;
-            border: 1px solid #d4af37;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .btn-wa:hover {
-            background: #d4af37;
-            color: #000;
-        }
-        .promo-jueves {
-            background: linear-gradient(135deg, #1a1005 0%, #0d0d0d 100%);
             border: 2px solid #d4af37;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        .btn-wa::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #d4af37, #b8960c);
+            transition: left 0.3s ease;
+            -webkit-transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn-wa:hover::before,
+        .btn-wa:active::before {
+            left: 0;
+        }
+        
+        .btn-wa:hover,
+        .btn-wa:active {
+            color: #000;
+            transform: scale(1.05);
+            -webkit-transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+        
+        .promo-madre {
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 100%);
+            border: 3px solid transparent;
+            border-radius: 30px;
+            padding: 50px 40px;
             margin-bottom: 30px;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: borderGlowMadre 3s ease-in-out infinite;
+            -webkit-animation: borderGlowMadre 3s ease-in-out infinite;
         }
-        .promo-jueves h2 {
-            color: #d4af37;
-            font-size: 1.8rem;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        
+        @keyframes borderGlowMadre {
+            0%, 100% { border-color: #e91e63; box-shadow: 0 0 30px rgba(233, 30, 99, 0.3); }
+            50% { border-color: #ff6b9d; box-shadow: 0 0 60px rgba(233, 30, 99, 0.5), 0 0 80px rgba(233, 30, 99, 0.2); }
         }
-        .promo-jueves .emoji {
-            font-size: 2rem;
+        
+        @-webkit-keyframes borderGlowMadre {
+            0%, 100% { border-color: #e91e63; box-shadow: 0 0 30px rgba(233, 30, 99, 0.3); }
+            50% { border-color: #ff6b9d; box-shadow: 0 0 60px rgba(233, 30, 99, 0.5), 0 0 80px rgba(233, 30, 99, 0.2); }
+        }
+        
+        .promo-madre .emoji {
+            font-size: 3rem;
             display: block;
             margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite;
+            -webkit-animation: pulse 2s ease-in-out infinite;
         }
-        .promo-jueves p {
-            color: #ccc;
-            font-size: 1rem;
-            margin: 0 0 25px 0;
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); -webkit-transform: scale(1); }
+            50% { transform: scale(1.1); -webkit-transform: scale(1.1); }
         }
-        .promo-jueves .btn-wa {
-            background: #d4af37;
-            color: #000;
-            font-size: 1rem;
-            padding: 12px 30px;
+        
+        @-webkit-keyframes pulse {
+            0%, 100% { -webkit-transform: scale(1); }
+            50% { -webkit-transform: scale(1.1); }
         }
-        .promo-jueves .btn-wa:hover {
-            background: #fff;
+        
+        .promo-madre h2 {
+            color: #e91e63;
+            font-size: 2rem;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(233, 30, 99, 0.5);
         }
-        .redes {
+        
+        .precio-descuento {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .precio-original {
+            font-size: 2rem;
+            color: #888;
+            text-decoration: line-through;
+        }
+        
+        .precio-nuevo {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #e91e63, #ff6b9d, #e91e63);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 3s linear infinite;
+            -webkit-animation: shine 3s linear infinite;
+        }
+        
+        .descuento-badge {
+            background: #e91e63;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            animation: pulse 1s ease-in-out infinite;
+            -webkit-animation: pulse 1s ease-in-out infinite;
+        }
+        
+        .promo-madre p {
+            color: #ddd;
+            font-size: 1.1rem;
+            margin: 0 0 30px 0;
+            line-height: 1.8;
+        }
+        
+        .promo-madre strong {
+            color: #e91e63;
+            text-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+        }
+        
+        .valido-hasta {
+            color: #e91e63 !important;
+            font-size: 0.9rem !important;
+            margin-top: 20px !important;
+            margin-bottom: 0 !important;
+            font-style: italic;
+        }
+        
+        .promo-viernes {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 3px solid transparent;
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin-bottom: 30px;
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+            animation: borderGlowViernes 3s ease-in-out infinite;
+            -webkit-animation: borderGlowViernes 3s ease-in-out infinite;
         }
+        
+        @keyframes borderGlowViernes {
+            0%, 100% { border-color: #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+            50% { border-color: #fff; box-shadow: 0 0 60px rgba(212, 175, 55, 0.5), 0 0 80px rgba(212, 175, 55, 0.2); }
+        }
+        
+        @-webkit-keyframes borderGlowViernes {
+            0%, 100% { border-color: #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+            50% { border-color: #fff; box-shadow: 0 0 60px rgba(212, 175, 55, 0.5), 0 0 80px rgba(212, 175, 55, 0.2); }
+        }
+        
+        .promo-viernes .sparkle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            animation: sparkle 2s ease-in-out infinite 1s;
+            -webkit-animation: sparkle 2s ease-in-out infinite 1s;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); -webkit-transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.5; transform: scale(1.3) rotate(15deg); -webkit-transform: scale(1.3) rotate(15deg); }
+        }
+        
+        @-webkit-keyframes sparkle {
+            0%, 100% { opacity: 1; -webkit-transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.5; -webkit-transform: scale(1.3) rotate(15deg); }
+        }
+        
+        .promo-viernes h2 {
+            color: #d4af37;
+            font-size: 2.2rem;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            animation: titlePulse 2s ease-in-out infinite;
+            -webkit-animation: titlePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); -webkit-transform: scale(1); }
+            50% { transform: scale(1.02); -webkit-transform: scale(1.02); }
+        }
+        
+        @-webkit-keyframes titlePulse {
+            0%, 100% { -webkit-transform: scale(1); }
+            50% { -webkit-transform: scale(1.02); }
+        }
+        
+        .promo-viernes .emoji {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 15px;
+            animation: bounce 1s ease infinite;
+            -webkit-animation: bounce 1s ease infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); -webkit-transform: translateY(0); }
+            50% { transform: translateY(-10px); -webkit-transform: translateY(-10px); }
+        }
+        
+        @-webkit-keyframes bounce {
+            0%, 100% { -webkit-transform: translateY(0); }
+            50% { -webkit-transform: translateY(-10px); }
+        }
+        
+        .promo-viernes p {
+            color: #ddd;
+            font-size: 1.1rem;
+            margin: 0 0 30px 0;
+            line-height: 1.8;
+        }
+        
+        .promo-viernes strong {
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+        
+        .promo-viernes .btn-wa {
+            background: linear-gradient(90deg, #d4af37, #b8960c);
+            color: #000;
+            font-size: 1.1rem;
+            padding: 15px 35px;
+            border: none;
+            margin: 5px;
+            animation: btnPulse 2s ease-in-out infinite;
+            -webkit-animation: btnPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes btnPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+        }
+        
+        @-webkit-keyframes btnPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+        }
+        
+        .promo-viernes .btn-wa:hover,
+        .promo-viernes .btn-wa:active {
+            background: linear-gradient(90deg, #fff, #d4af37);
+            animation: none;
+            -webkit-animation: none;
+        }
+        
+        .promo-madre .btn-wa {
+            background: linear-gradient(90deg, #e91e63, #ff6b9d);
+            color: #fff;
+            border: none;
+            animation: btnPulseMadre 2s ease-in-out infinite;
+            -webkit-animation: btnPulseMadre 2s ease-in-out infinite;
+        }
+        
+        @keyframes btnPulseMadre {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(233, 30, 99, 0); }
+        }
+        
+        @-webkit-keyframes btnPulseMadre {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(233, 30, 99, 0); }
+        }
+        
+        .promo-madre .btn-wa:hover,
+        .promo-madre .btn-wa:active {
+            background: linear-gradient(90deg, #fff, #e91e63);
+            color: #000;
+            animation: none;
+            -webkit-animation: none;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid #333;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+            border-color: #d4af37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        .redes-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+            border: 2px solid #333;
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin-top: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .redes-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+        
+        .redes-title {
+            color: #d4af37;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .redes-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
         .btn-red {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: #888;
+            gap: 12px;
+            background: #1a1a1a;
+            border: 2px solid #444;
+            color: #fff;
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            padding: 18px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
         }
-        .btn-red:hover { color: #fff; }
+        
+        .btn-red::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+            -webkit-transition: left 0.6s;
+        }
+        
+        .btn-red:hover::before,
+        .btn-red:active::before {
+            left: 100%;
+        }
+        
+        .btn-red:hover,
+        .btn-red:active {
+            transform: translateY(-8px) scale(1.1);
+            -webkit-transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+        
+        .btn-red .icon {
+            font-size: 1.6rem;
+            transition: transform 0.3s ease;
+            -webkit-transition: -webkit-transform 0.3s ease;
+        }
+        
+        .btn-red:hover .icon,
+        .btn-red:active .icon {
+            transform: rotate(15deg) scale(1.2);
+            -webkit-transform: rotate(15deg) scale(1.2);
+        }
+        
+        .btn-red.instagram:hover,
+        .btn-red.instagram:active {
+            border-color: #E4405F;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
+        }
+        
+        .btn-red.tiktok:hover,
+        .btn-red.tiktok:active {
+            border-color: #00f2ea;
+            background: linear-gradient(90deg, #00f2ea, #ff0050);
+            color: #fff;
+        }
+        
+        .btn-red.facebook:hover,
+        .btn-red.facebook:active {
+            border-color: #1877F2;
+            background: #1877F2;
+            color: #fff;
+        }
+        
+        .btn-red.whatsapp:hover,
+        .btn-red.whatsapp:active {
+            border-color: #25D366;
+            background: #25D366;
+            color: #fff;
+        }
+        
+        .barberos-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid #444;
+            border-radius: 25px;
+            padding: 40px 30px;
+            margin-top: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .barberos-section::before {
+            content: '✂️';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 1.5rem;
+            opacity: 0.3;
+        }
+        
+        .barberos-section::after {
+            content: '🪒';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            opacity: 0.3;
+        }
+        
+        .barberos-title {
+            color: #c0c0c0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        
+        .barberos-text {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .barberos-text strong { color: #fff; }
+        
+        .btn-barberos {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #333, #1a1a1a);
+            border: 2px solid #666;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            -webkit-transition: all 0.4s ease;
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        .btn-barberos:hover,
+        .btn-barberos:active {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743);
+            border-color: #E4405F;
+            transform: translateY(-5px) scale(1.05);
+            -webkit-transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(228, 64, 95, 0.4);
+        }
+        
+        .btn-barberos .icon { font-size: 1.4rem; }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse-green 2s infinite;
+            -webkit-animation: pulse-green 2s infinite;
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-backface-visibility: hidden;
+        }
+        
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        @-webkit-keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .whatsapp-float:hover,
+        .whatsapp-float:active {
+            transform: scale(1.15) rotate(10deg);
+            -webkit-transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.7);
+        }
+        
         .footer {
             text-align: center;
-            padding: 20px;
-            color: #333;
-            font-size: 0.75rem;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 30px;
+            border-top: 1px solid #222;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; letter-spacing: 4px; }
+            .tecnica { padding: 25px 20px; }
+            .tecnica h3 { font-size: 1.2rem; flex-direction: column; align-items: flex-start; }
+            .caja .precio { font-size: 2.5rem; }
+            .promo-madre { padding: 35px 25px; }
+            .promo-madre h2 { font-size: 1.6rem; }
+            .promo-viernes { padding: 35px 25px; }
+            .promo-viernes h2 { font-size: 1.6rem; }
+            .btn-red { padding: 15px 25px; }
+            .gallery { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+            .gallery img { height: 200px; }
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
 
-    <div class="header">
-        <h1>JK Studio MB</h1>
-        <p class="subtitulo">ESPECIALISTAS EN DISEÑO DE CEJAS</p>
+    <div class="nav-back">
+        <a href="index.html">← Volver al inicio</a>
     </div>
 
-    <!-- CAMBIADO A .png -->
-    <img src="cejas.png" alt="Trabajo de Cejas Realizado" class="hero-img">
+    <div class="header">
+        <h1>JK Studio MB</h1>
+        <p class="subtitulo">Especialistas en Diseño de Cejas</p>
+    </div>
+
+    <div class="hero-container">
+        <img src="img/jkstudio/1.jpg" alt="Trabajo de Cejas Realizado" class="hero-img" id="heroImg">
+    </div>
 
     <div class="container">
 
+        <h2 class="section-title">Nuestras Técnicas</h2>
+        
         <div class="lista-servicios">
             <div class="tecnica">
-                <h3>1. Microblading</h3>
-                <p>Efecto "vello a vello". Ideal para cubrir espacios vacíos, reconstruir la ceja y lograr un look ultra natural y orgánico.</p>
+                <div class="tecnica-number">1</div>
+                <h3>
+                    Microblading
+                    <span class="tecnica-icon">✨</span>
+                </h3>
+                <p>Efecto "vello a vello". Ideal para cubrir espacios vacíos, reconstruir la ceja y lograr un look ultra natural y orgánico. Técnica perfecta para cejas escasas o con poco pelo.</p>
             </div>
+            
             <div class="tecnica">
-                <h3>2. Microshading</h3>
-                <p>Efecto "polvo suave" o sombra difuminada. No marca pelitos duros. Perfecto para pieles grasas o mixtas, y para un maquillaje sutil diario.</p>
+                <div class="tecnica-number">2</div>
+                <h3>
+                    Microshading
+                    <span class="tecnica-icon">🌸</span>
+                </h3>
+                <p>Efecto "polvo suave" o sombra difuminada. No marca pelitos duros. Perfecto para pieles grasas o mixtas, y para un maquillaje sutil diario que dure todo el día.</p>
             </div>
+            
             <div class="tecnica">
-                <h3>3. Sombreado / Compacta</h3>
-                <p>Efecto maquillaje intenso (labio de gorrito). Alta cobertura, contorno perfecto y definición extrema para un impacto visual máximo.</p>
+                <div class="tecnica-number">3</div>
+                <h3>
+                    Sombreado / Compacta
+                    <span class="tecnica-icon">💎</span>
+                </h3>
+                <p>Efecto maquillaje intenso. Alta cobertura, contorno perfecto y definición extrema para un impacto visual máximo. Ideal para quienes buscan un look definido.</p>
             </div>
         </div>
 
+        <h2 class="section-title">Inversión</h2>
+        
         <div class="cajas-precio">
             <div class="caja">
                 <div class="tipo">En Local</div>
                 <div class="precio">$60</div>
-                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio.%20Quiero%20agendar%20Cejas%20en%20Local%20(%2460).%20%F0%9F%92%89" class="btn-wa">Agendar</a>
+                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio.%20Quiero%20agendar%20Cejas%20en%20Local%20(%2460).%20%F0%9F%92%89" class="btn-wa wa-link">Agendar Ahora</a>
             </div>
             <div class="caja">
                 <div class="tipo">A Domicilio</div>
                 <div class="precio">$70</div>
-                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio.%20Quiero%20agendar%20Cejas%20a%20Domicilio%20(%2470).%20%F0%9F%8F%A1" class="btn-wa">Agendar</a>
+                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio.%20Quiero%20agendar%20Cejas%20a%20Domicilio%20(%2470).%20%F0%9F%8F%A1" class="btn-wa wa-link">Agendar Ahora</a>
             </div>
         </div>
 
-        <div class="promo-jueves">
-            <span class="emoji">🎉 eyebrows & lashes 🎉</span>
-            <h2>¡LOS JUEVES SON MÁGICOS!</h2>
-            <p>Llévate tu diseño de cejas (Microblading, Shading o Compacta) <strong>MÁS un rizado de pestañas</strong> exactamente al mismo precio. ¡Solo los Jueves!</p>
-            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio.%20Quiero%20agendar%20la%20PROMO%20DE%20JUEVES%20(Cejas%20%2B%20Rizado)%20en%20Local%20por%20%2460.%20%F0%9F%98%8E" class="btn-wa">Jueves Local ($60)</a>
-                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio.%20Quiero%20agendar%20la%20PROMO%20DE%20JUEVES%20(Cejas%20%2B%20Rizado)%20a%20Domicilio%20por%20%2470.%20%F0%9F%9A%97" class="btn-wa">Jueves Domicilio ($70)</a>
+        <div class="promo-madre">
+            <span class="emoji">💖</span>
+            <h2>¡Feliz Día de la Madre!</h2>
+            <div class="precio-descuento">
+                <span class="precio-original">$60</span>
+                <span class="precio-nuevo">$30</span>
+                <span class="descuento-badge">-50% OFF</span>
+            </div>
+            <p>Celebra a mamá con el regalo perfecto.<br>
+            <strong>Cualquier técnica de cejas</strong> (Microblading, Shading o Compacta)<br>
+            a mitad de precio. ¡Por tiempo limitado!</p>
+            <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio!%20%F0%9F%92%9D%20Quiero%20agendar%20la%20PROMO%20D%C3%8DA%20DE%20LA%20MADRE%20por%20%2430%20en%20Local.%20%C2%A1Regalo%20para%20mam%C3%A1!" class="btn-wa wa-link">Agendar Promo Local $30</a>
+                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio!%20%F0%9F%92%9D%20Quiero%20agendar%20la%20PROMO%20D%C3%8DA%20DE%20LA%20MADRE%20a%20Domicilio%20por%20%2430.%20%C2%A1Regalo%20para%20mam%C3%A1!" class="btn-wa wa-link">Agendar Promo Domicilio $30</a>
+            </div>
+            <p class="valido-hasta">🌸 Válido hasta el 11 de mayo de 2026 🌸</p>
+        </div>
+
+        <div class="promo-viernes">
+            <span class="sparkle">✨</span>
+            <span class="emoji">🌟</span>
+            <h2>¡Los Viernes son Mágicos!</h2>
+            <p>Llévate tu diseño de cejas <strong>(Microblading, Shading o Compacta)</strong><br>
+            <strong>MÁS rizado de pestañas o extensión punto a punto (1x1)</strong><br>
+            exactamente al mismo precio.<br>
+            <em>¡Solo los Viernes!</em></p>
+            <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio.%20Quiero%20agendar%20la%20PROMO%20DE%20VIERNES%20(Cejas%20%2B%20Pesta%C3%B1as)%20en%20Local%20por%20%2460.%20%F0%9F%98%8E" class="btn-wa wa-link">Viernes Local $60</a>
+                <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio.%20Quiero%20agendar%20la%20PROMO%20DE%20VIERNES%20(Cejas%20%2B%20Pesta%C3%B1as)%20a%20Domicilio%20por%20%2470.%20%F0%9F%9A%97" class="btn-wa wa-link">Viernes Domicilio $70</a>
             </div>
         </div>
-
-        <div class="redes">
-            <a href="https://www.instagram.com/jkstudiomb/" target="_blank" class="btn-red">📸 Instagram</a>
-            <a href="https://www.tiktok.com/@jkstudiomb" target="_blank" class="btn-red">🎵 TikTok</a>
-            <a href="https://www.facebook.com/jkstudiomb" target="_blank" class="btn-red">👤 Facebook</a>
-        </div>
-
     </div>
+
+    <h2 class="section-title">Nuestros Trabajos</h2>
+    <div class="gallery" id="galleryJK"></div>
+
+    <div class="container">
+        <div class="redes-section">
+            <h3 class="redes-title">Síguenos en Redes</h3>
+            <div class="redes-container">
+                <a href="https://www.instagram.com/jkstudiomb/" target="_blank" class="btn-red instagram">
+                    <span class="icon">📸</span>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@jkstudiomb" target="_blank" class="btn-red tiktok">
+                    <span class="icon">🎵</span>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://www.facebook.com/jkstudiomb" target="_blank" class="btn-red facebook">
+                    <span class="icon">👤</span>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://wa.me/593985037366" target="_blank" class="btn-red whatsapp wa-link">
+                    <span class="icon">💬</span>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="barberos-section">
+            <h3 class="barberos-title">✂️ También en el Local</h3>
+            <p class="barberos-text">
+                Visita <strong>Barberos VIP Corporation</strong> en el mismo local.<br>
+                Los mejores cortes y estilos para caballeros.
+            </p>
+            <a href="https://www.instagram.com/barberos_vip_corporation?igsh=dGR2ajFrMDhkaDRs" target="_blank" class="btn-barberos">
+                <span class="icon">📸</span>
+                <span>Seguir a Barberos VIP</span>
+            </a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/593985037366?text=Hola%20JK%20Studio!%20%F0%9F%92%85%20Quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20cejas" class="whatsapp-float wa-link" target="_blank" title="Contáctanos por WhatsApp">
+        💬
+    </a>
 
     <div class="footer">
-        Por Kleiner Jefferson Suárez García | Guayaquil, Ecuador
+        <p>JK Studio MB | Especialistas en Diseño de Cejas</p>
+        <p>Por Kleiner Jefferson Suárez García | Guayaquil, Ecuador</p>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            
+            function openWhatsApp(url) {
+                if (isIOS && isSafari) {
+                    var iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    iframe.src = url;
+                    document.body.appendChild(iframe);
+                    setTimeout(function() {
+                        window.location.href = url;
+                        document.body.removeChild(iframe);
+                    }, 100);
+                    return false;
+                }
+                var newWindow = window.open(url, '_blank');
+                if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                    window.location.href = url;
+                }
+                return false;
+            }
+            
+            var waLinks = document.querySelectorAll('.wa-link');
+            waLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openWhatsApp(this.href);
+                    return false;
+                });
+                link.addEventListener('touchstart', function(e) {
+                    this.style.transform = 'scale(0.95)';
+                }, {passive: true});
+                link.addEventListener('touchend', function(e) {
+                    this.style.transform = '';
+                }, {passive: true});
+            });
+            
+            var floatBtn = document.querySelector('.whatsapp-float');
+            if (floatBtn) {
+                floatBtn.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(1.15) rotate(10deg)';
+                }, {passive: true});
+                floatBtn.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                }, {passive: true});
+            }
+
+            var gallery = document.getElementById('galleryJK');
+            var imagenes = [
+                'img/jkstudio/1.jpg',
+                'img/jkstudio/2.jpg',
+                'img/jkstudio/3.jpg',
+                'img/jkstudio/4.jpg',
+                'img/jkstudio/5.jpg',
+                'img/jkstudio/6.jpg',
+                'img/jkstudio/10.jpg',
+                'img/jkstudio/agendaabierta.jpg',
+                'img/jkstudio/antes y despues.ms.png',
+                'img/jkstudio/antes y despues.png',
+                'img/jkstudio/antesydespues.jpg',
+                'img/jkstudio/cejas.de.hombre.jpg',
+                'img/jkstudio/F-01.jpg',
+                'img/jkstudio/f-07.jpg',
+                'img/jkstudio/f-09.jpg',
+                'img/jkstudio/f-11.jpg',
+                'img/jkstudio/f-12.jpg',
+                'img/jkstudio/f-13.jpg',
+                'img/jkstudio/f-14.jpg',
+                'img/jkstudio/f-31.jpg',
+                'img/jkstudio/f-34.jpg',
+                'img/jkstudio/f-37.jpg',
+                'img/jkstudio/f-43.jpg',
+                'img/jkstudio/f-44.jpg',
+                'img/jkstudio/f-46.jpg',
+                'img/jkstudio/f-47.jpg',
+                'img/jkstudio/f-48.jpg',
+                'img/jkstudio/f-49.jpg',
+                'img/jkstudio/f-50.jpg',
+                'img/jkstudio/f-51.jpg',
+                'img/jkstudio/F-52.jpg',
+                'img/jkstudio/f-53.jpg',
+                'img/jkstudio/f-54.jpg',
+                'img/jkstudio/f-55.jpg',
+                'img/jkstudio/f-56.jpg',
+                'img/jkstudio/f-57.jpg',
+                'img/jkstudio/f-58.jpg',
+                'img/jkstudio/f-59.jpg',
+                'img/jkstudio/f-60.jpg',
+                'img/jkstudio/f-61.jpg',
+                'img/jkstudio/f-62.jpg',
+                'img/jkstudio/f-63.jpg',
+                'img/jkstudio/f-64.jpg',
+                'img/jkstudio/f-65.jpg',
+                'img/jkstudio/f-67.jpg',
+                'img/jkstudio/f-68.jpg',
+                'img/jkstudio/f-70.jpg',
+                'img/jkstudio/hombre.antesydespues.jpg',
+                'img/jkstudio/jkstudiomb.microshading.jpg',
+                'img/jkstudio/jkstudiomb.microshading1.jpg',
+                'img/jkstudio/logo1.png',
+                'img/jkstudio/microblading.jpg',
+                'img/jkstudio/microshading.jpg',
+                'img/jkstudio/microshadingantes.jpg',
+                'img/jkstudio/microshadingdespues.jpg',
+                'img/jkstudio/sombreados.jpg'
+            ];
+            imagenes.forEach(function(src) {
+                var img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Trabajo JK Studio';
+                img.loading = 'lazy';
+                img.addEventListener('click', function() { window.open(this.src, '_blank'); });
+                gallery.appendChild(img);
+            });
+
+            var heroImg = document.getElementById('heroImg');
+            if (heroImg) {
+                var nextHeroSrc = 'img/jkstudio/2.jpg';
+                var heroCheck = new Image();
+                heroCheck.onload = function() {
+                    heroImg.src = nextHeroSrc;
+                };
+                heroCheck.src = nextHeroSrc;
+            }
+
+        });
+    </script>
 
 </body>
 </html>
